@@ -7,7 +7,7 @@ ENV NGINX_SUB_VERSION  1
 ENV NJS_VERSION        1.12.2.0.1.14-1~xenial
 
 ## For chinese user
-RUN sed -i "s/http:\/\/archive\.ubuntu\.com/http:\/\/mirrors\.aliyun\.com/g" /etc/apt/sources.list
+## RUN sed -i "s/http:\/\/archive\.ubuntu\.com/http:\/\/mirrors\.aliyun\.com/g" /etc/apt/sources.list
 
 COPY nginx/rules /tmp/rules
 COPY entrypoint /
