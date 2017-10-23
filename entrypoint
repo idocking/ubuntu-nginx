@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ ! -f ".password_initialized" ]; then
+  	ROOTPWD=$(pwgen -Bsv1 16) \
+	&& echo "root:${ROOTPWD}" | chpasswd \
+    && echo "" \
+    && echo "**********************************************************************" \
+    && echo "*** The root password is [${ROOTPWD}], please change it ASAP ***" \
+    && echo "**********************************************************************" \
+    && echo "" \
+    && touch ".password_initialized"
+fi
+
+nginx
+
+exec "$@"
